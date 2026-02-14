@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title or 'Income Spending Survey' }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    .row { margin-bottom: 1rem; }
+    label { display: inline-block; width: 160px; }
+    .cat { margin: .25rem 0; }
+    input[type='number'] { width: 180px; }
+    small { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>{{ title or 'Income Spending Survey' }}</h1>
+  {% block content %}{% endblock %}
+</body>
+</html>

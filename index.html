@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+  <div class="row">
+    <label>Age</label>
+    <input type="number" name="age" min="0" required />
+  </div>
+
+  <div class="row">
+    <label>Gender</label>
+    <select name="gender" required>
+      <option value="">--select--</option>
+      <option>Female</option>
+      <option>Male</option>
+      <option>Non-binary</option>
+      <option>Prefer not to say</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <label>Total Income</label>
+    <span style="font-weight:bold;">$</span>
+    <input type="number" name="total_income" min="0" step="0.01" required />
+    <small>(e.g., monthly income)</small>
+  </div>
+
+  <h3>Expenses</h3>
+  <p><small>Check a category then enter the amount spent.</small></p>
+
+  {% for cat in categories %}
+    <div class="cat">
+      <input type="checkbox" name="chk_{{cat}}" id="chk_{{cat}}">
+      <label for="chk_{{cat}}">{{ cat.replace('_',' ').title() }}</label>
+      <span style="font-weight:bold;">$</span>
+      <input type="number" name="amt_{{cat}}" min="0" step="0.01" placeholder="Amount" />
+    </div>
+  {% endfor %}
+
+  <div class="row">
+    <button type="submit">Submit</button>
+  </div>
+</form>
+{% endblock %}
